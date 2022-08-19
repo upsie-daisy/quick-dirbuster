@@ -39,6 +39,7 @@ git clone https://github.com/upsie-daisy/quick-dirbuster
 1. [Node-Dirbuster WordLists](https://github.com/daviddias/node-dirbuster/tree/master/lists)
 2. [Dirbuster-ng](https://github.com/digination/dirbuster-ng/tree/master/wordlists)
 3. [KaliLists](https://github.com/3ndG4me/KaliLists/blob/master/wfuzz/webservices/ws-dirs.txt)
+4. [Web wordlists in 2021](https://blog.sec-it.fr/en/2021/03/02/web-wordlists/)
 
 <hr>
 
