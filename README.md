@@ -2,7 +2,8 @@
 </h1>
 
 <p>A Handy Script for Finding Website Directories using Wordlists</p>
-
+<p>Usage of this script for attacking targets without prior mutual consent is illegal. Developers assume no liability and are not responsible for any misuse or damage caused by this program</p>
+<p>quick-dirbuster will first look for a robots.txt file, then try all the paths stored in your wordlist file.</p>
 
 <h2><i>Installation :</i></h2>
 
@@ -23,6 +24,7 @@ git clone https://github.com/upsie-daisy/quick-dirbuster
 | -s  | --suffix        | Suffix (.html/.php...)    | None    |
 | -sl | --show-length   | Print content length      | False   |
 | -fl | --filter-length | Filter by content length  | False   |
+| -ro | --robots-txt    | Search for robots.txt     | True    |
 
 <h2><i>Example :</i></h2>
 
@@ -44,3 +46,4 @@ git clone https://github.com/upsie-daisy/quick-dirbuster
 <hr>
 
 ![Follow me](https://img.shields.io/badge/-Follow%20Me-222222?logo=twitter&logoColor=black&color=272838&labelColor=C09891&style=for-the-badge&logoWidth=30&link=https://twitter.com/IlIIlIIllIlI)
+
