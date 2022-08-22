@@ -106,15 +106,20 @@ def start_scan(url, wordlist, target, suffix):
         time.sleep(3)
         print(a.cll)
 
-        try:
-            response = requests.get(f"{url}robots.txt")
-        except Exception:
-            print(f"{a.bl}[{a.r}!{a.bl}] {a.rst}Error unexpected while reaching \"{a.c}{url}{a.rst}\"")
-            sys.exit(1)
-        if response.status_code == 200:
-            print(f"{a.bl}[{a.g}v{a.bl}] {a.rst}Robots.txt :\n {a.bl}{response.text}{a.rst}")
-        else:
-            print(f"{a.bl}[{a.r}x{a.bl}] {a.rst}Robots.txt not found{a.rst}")
+        if flag.robotstxt == True:
+            try:
+                response = requests.get(f"{url}robots.txt")
+            except Exception:
+                print(f"{a.bl}[{a.r}!{a.bl}] {a.rst}Error unexpected while reaching \"{a.c}{url}{a.rst}\"")
+                sys.exit(1)
+            if response.status_code == 200:
+                print(f"{a.bl}[{a.g}v{a.bl}] {a.rst}Robots.txt :\n {a.bl}{response.text}{a.rst}")
+                if flag.output != False:
+                    file.write(f"- Robots.txt :\n {response.text}\n")
+            else:
+                print(f"{a.bl}[{a.r}x{a.bl}] {a.rst}Robots.txt not found{a.rst}")
+                if flag.output != False:
+                    file.write("- Robots.txt not found\n")
 
         result = 0
         if suffix == None:
