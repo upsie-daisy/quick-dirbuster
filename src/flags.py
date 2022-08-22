@@ -50,8 +50,11 @@ class Flag:
                 found = False
                 if sys.argv[i] == flag.short or sys.argv[i] == flag.full:
                     if flag.type == "bool":
-                        setattr(self, flag.full.replace('-',''), True)
-                    
+                        if flag.default == False:
+                            setattr(self, flag.full.replace('-',''), True)
+                        else:
+                            setattr(self, flag.full.replace('-',''), False)
+
                     elif flag.type == "int":
                         i += 1
                         if i >= argc:
