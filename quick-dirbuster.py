@@ -22,6 +22,7 @@ flag.new(short="-t", full="--target", default="200", help="Choose Target Status 
 flag.new(short="-s", full="--suffix", default=None, help="Suffix (.html/.php...)")
 flag.new(short="-sl", full="--show-length", default=False, type="bool", help="Print content length")
 flag.new(short="-fl", full="--filter-length", type="int", default=False, help="Filter by content length")
+flag.new(short="-ro", full="--robots-txt", type="bool", default=True, help="Search for robots.txt")
 
 flag.parse()
 
@@ -104,6 +105,16 @@ def start_scan(url, wordlist, target, suffix):
         sys.stdout.flush()
         time.sleep(3)
         print(a.cll)
+
+        try:
+            response = requests.get(f"{url}robots.txt")
+        except Exception:
+            print(f"{a.bl}[{a.r}!{a.bl}] {a.rst}Error unexpected while reaching \"{a.c}{url}{a.rst}\"")
+            sys.exit(1)
+        if response.status_code == 200:
+            print(f"{a.bl}[{a.g}v{a.bl}] {a.rst}Robots.txt :\n {a.bl}{response.text}{a.rst}")
+        else:
+            print(f"{a.bl}[{a.r}x{a.bl}] {a.rst}Robots.txt not found{a.rst}")
 
         result = 0
         if suffix == None:
